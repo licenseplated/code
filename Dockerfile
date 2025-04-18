@@ -2,7 +2,21 @@ FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends python3-venv wget gpg apt-transport-https ca-certificates && \
+    apt-get install -y --no-install-recommends \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        git \
+        gnupg \
+        jq \
+        openssh-client \
+        procps \
+        python3-venv \
+        unzip \
+        vim \
+        wget \
+        yq \
+        && \
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/packages.microsoft.gpg && \
     echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list && \
     apt-get update && \
