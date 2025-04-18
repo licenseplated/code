@@ -12,6 +12,7 @@ RUN apt-get update && \
         openssh-client \
         procps \
         python3-venv \
+        screen \
         unzip \
         vim \
         wget \
