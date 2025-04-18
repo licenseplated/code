@@ -26,7 +26,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 RUN mkdir /code && \
     chown -R 65532:65532 /code && \
-    echo "code:x:65532:65532:code:/code:" > /etc/passwd && \
+    echo "code:x:65532:65532:code:/code:/bin/bash" > /etc/passwd && \
     echo "code:x:65532:" >> /etc/group
 
 USER 65532:65532
