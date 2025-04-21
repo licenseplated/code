@@ -4,13 +4,17 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         apt-transport-https \
+        build-essential \
         ca-certificates \
         curl \
         git \
         gnupg \
         jq \
+        libldap2-dev \
+        libsasl2-dev \
         openssh-client \
         procps \
+        python3-dev \
         python3-venv \
         screen \
         unzip \
