@@ -1,0 +1,13 @@
+services:
+  code:
+    container_name: code
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - code_data:/code
+    user: "65532:65532"
+    working_dir: /code
+    command: /usr/bin/code tunnel --name code
+volumes:
+  code_data:
