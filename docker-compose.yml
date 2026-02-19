@@ -6,9 +6,17 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - code_data:/code
-    user: "65532:65532"
+      - code_home:/code
+      - /var/home/marti/projects:/code/data
+    user: "1000:1000"
+    userns_mode: keep-id
+    security_opt:
+      - label=disable
     working_dir: /code
     command: /usr/bin/code tunnel --name code
+    restart: always
 volumes:
-  code_data:
+  code_home:
+
+x-podman:
+  in_pod: false
