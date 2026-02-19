@@ -1,6 +1,7 @@
 services:
   code:
     container_name: code
+    hostname: code
     build:
       context: .
       dockerfile: Dockerfile
