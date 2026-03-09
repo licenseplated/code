@@ -29,11 +29,11 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN mkdir /code && \
-    chown -R 1000:1000 /code && \
-    echo "code:x:1000:1000:code:/code:/bin/bash" > /etc/passwd && \
-    echo "code:x:1000:" >> /etc/group
+    chown -R 65532:65532 /code && \
+    echo "code:x:65532:65532:code:/code:/bin/bash" >> /etc/passwd && \
+    echo "code:x:65532:" >> /etc/group
 
-USER 1000:1000
-WORKDIR /code/data
+USER 65532:65532
+WORKDIR /code
 
 CMD ["/usr/bin/code", "tunnel"]
