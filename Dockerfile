@@ -34,7 +34,9 @@ RUN mkdir /code && \
     chown -R 65532:65532 /code && \
     echo "code:x:65532:65532:code:/code:/bin/bash" >> /etc/passwd && \
     echo "code:x:65532:" >> /etc/group && \
-    echo "code ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/code 
+    echo "code ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/code && \
+    mkdir -p /home/linuxbrew && \
+    chown -R 65532:65532 /home/linuxbrew
 USER 65532:65532
 ENV HOME=/code
 WORKDIR /code
