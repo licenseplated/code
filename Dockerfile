@@ -34,15 +34,8 @@ RUN mkdir /code && \
     chown -R 65532:65532 /code && \
     echo "code:x:65532:65532:code:/code:/bin/bash" >> /etc/passwd && \
     echo "code:x:65532:" >> /etc/group && \
-    echo "code ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/code && \
-    mkdir -p /home/linuxbrew/.linuxbrew && \
-    chown -R 65532:65532 /home/linuxbrew
+    echo "code ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/code 
 USER 65532:65532
 ENV HOME=/code
-RUN NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-ENV HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew \
-    HOMEBREW_CELLAR=/home/linuxbrew/.linuxbrew/Cellar \
-    HOMEBREW_REPOSITORY=/home/linuxbrew/.linuxbrew/Homebrew \
-    PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 WORKDIR /code
 CMD ["/usr/bin/code", "tunnel"]
