@@ -14,6 +14,7 @@ RUN apt-get update && \
         libldap2-dev \
         libsasl2-dev \
         openssh-client \
+        openssh-server \
         procps \
         python3-dev \
         python3-venv \
