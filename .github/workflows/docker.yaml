@@ -16,5 +16,5 @@ jobs:
         run: |
           echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin &&
           docker buildx create --name builder --bootstrap --use &&
-          docker buildx build . --platform linux/amd64,linux/arm64 --push --tag ${DOCKER_REPO}:${DOCKER_TAG} &&
+          docker buildx build . --platform linux/amd64 --push --tag ${DOCKER_REPO}:${DOCKER_TAG} &&
           echo Done
